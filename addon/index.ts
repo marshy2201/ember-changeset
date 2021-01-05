@@ -241,7 +241,7 @@ export function changeset(
       }
 
       return resolve(savePromise).then((result) => {
-        this.rollback();
+        //this.rollback();
         return result;
       });
     },
