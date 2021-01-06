@@ -206,7 +206,7 @@ export function changeset(
      * @method execute
      */
     execute(): ChangesetDef {
-      if (get(this, 'isValid') && get(this, 'isDirty')) {
+      if (get(this, 'isDirty')) {
         let content: Content = get(this, CONTENT);
         let changes: Changes = get(this, CHANGES);
         keys(changes).forEach(key => deepSet(content, key, changes[key].value));
@@ -241,7 +241,7 @@ export function changeset(
       }
 
       return resolve(savePromise).then((result) => {
-        //this.rollback();
+        this.rollback();
         return result;
       });
     },
